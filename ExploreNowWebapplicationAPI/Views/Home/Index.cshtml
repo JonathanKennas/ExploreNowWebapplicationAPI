@@ -1,24 +1,90 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+﻿@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+@*<div class="page-header">
+    <h1>Aktiviteter</h1>
+</div>*@
+
 <div class="row">
+
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Aktiviteter</h2>
+            </div>
+            <div class="panel-body">
+                <ul class="list-unstyled" data-bind="foreach: activities">
+                    <li>
+                        <strong><span data-bind="text: CategoryName"></span></strong>: <span data-bind="text: Name"></span>
+                        <small><a href="#" data-bind="click: $parent.getActivityDetail">Visa mer...</a></small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
     </div>
+
+    <!-- ko if:detail() -->
+
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Detail</h2>
+            </div>
+            <table class="table">
+                <tr><td>Kategori:</td><td data-bind="text: detail().CategoryName"></td></tr>
+                <tr><td>Namn:</td><td data-bind="text: detail().Name"></td></tr>
+                <tr><td>Beskrivning:</td><td data-bind="text: detail().Description"></td></tr>
+                <tr><td>Latitud:</td><td data-bind="text: detail().Latitude"></td></tr>
+                <tr><td>Longitud:</td><td data-bind="text: detail().Longitude"></td></tr>
+            </table>
+        </div>
     </div>
+
+    <!-- /ko -->
+
+
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Lägg till aktivitet</h2>
+            </div>
+
+            <div class="panel-body">
+                <form class="form-horizontal" data-bind="submit: addActivity">
+                    <div class="form-group">
+                        <label for="inputCategory" class="col-sm-2 control-label">Kategori:</label>
+                        <div class="col-sm-10">
+                            <select data-bind="options:categories, optionsText: 'Name', value: newActivity.Category"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-bind="with: newActivity">
+                        <label for="inputTitle" class="col-sm-2 control-label">Namn:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputName" data-bind="value:Name" />
+                        </div>
+
+                        <label for="inputDescription" class="col-sm-2 control-label">Beskrivning:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputDescription" data-bind="value:Description" />
+                        </div>
+
+                        <label for="inputLatitude" class="col-sm-2 control-label">Latitud:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputLatitude" data-bind="value:Latitude" />
+                        </div>
+
+                        <label for="inputLongitude" class="col-sm-2 control-label">Longitud:</label>
+                        <div class="col-sm-10">
+                            <input type="text" step="any" class="form-control" id="inputLongitude" data-bind="value:Longitude" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Lägg till</button>
+                </form>
+            </div>
+        </div>
     </div>
+
 </div>
