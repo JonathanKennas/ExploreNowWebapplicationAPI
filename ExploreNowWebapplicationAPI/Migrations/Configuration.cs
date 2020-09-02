@@ -87,6 +87,7 @@ namespace ExploreNowWebapplicationAPI.Migrations
                     Longitude = 14.72468376159668,
                     CategoryId = 4
                 }
+                // Kommando: Update-Database i Package Manage Console för att uppdatera databasen med ny data
             );
            
         }

@@ -188,6 +188,13 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\ExploreNowLauncher.png" />
+    <Content Include="Images\ExploreNowLogo.png" />
+    <Content Include="Images\Fishmarker.png" />
+    <Content Include="Images\Hikermarker.png" />
+    <Content Include="Images\LoginLogo.png" />
+    <Content Include="Images\Skiermarker.png" />
+    <Content Include="Images\XcSkiermarker.png" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
