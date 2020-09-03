@@ -176,6 +176,8 @@
     <Compile Include="Models\ActivityDetailDTO.cs" />
     <Compile Include="Models\ActivityDTO.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
+    <Compile Include="Models\Decrypt.cs" />
     <Compile Include="Models\ExploreNowWebapplicationAPIContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -222,6 +224,12 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery-validation\dist\additional-methods.js" />
+    <Content Include="Scripts\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="Scripts\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="Scripts\jquery-validation\dist\jquery.validate.min.js" />
     <Content Include="Scripts\knockout-3.5.1.debug.js" />
     <Content Include="Scripts\knockout-3.5.1.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -239,6 +247,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Scripts\jquery-validation\.bower.json" />
+    <Content Include="Scripts\jquery-validation\LICENSE.md" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\.bower.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

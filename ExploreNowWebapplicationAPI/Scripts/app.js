@@ -81,34 +81,34 @@
         //GPS-koordinater: https://www.gpskoordinater.com/
         //Inladdning av markörer
         var data = [
-            { "Id": 1, "PlaceName": "Forsaleden", "GeoLong": "62.8988458", "GeoLat": "14.967649100000017", "type": "Vandring" },
-            { "Id": 2, "PlaceName": "Bydalen", "GeoLong": "63.10122430000001", "GeoLat": "13.796461099999988", "type": "Skidor" },
-            { "Id": 3, "PlaceName": "Hannacksjön", "GeoLong": "63.19891579999999", "GeoLat": "15.2974289", "type": "Fiske" },
-            { "Id": 4, "PlaceName": "Åre", "GeoLong": "63.3990428", "GeoLat": "13.081505800000059", "type": "Skidor" },
-            { "Id": 5, "PlaceName": "Stora rengen", "GeoLong": "58.2589227", "GeoLat": "15.720074699999941", "type": "Fiske" }
+            { "Id": 1, "Name": "Forsaleden", "Longitude": "62.8988458", "Latitude": "14.967649100000017", "Category": "Vandring" },
+            { "Id": 2, "Name": "Bydalen", "Longitude": "63.10122430000001", "Latitude": "13.796461099999988", "Category": "Skidor" },
+            { "Id": 3, "Name": "Hannacksjön", "Longitude": "63.19891579999999", "Latitude": "15.2974289", "Category": "Fiske" },
+            { "Id": 4, "Name": "Åre", "Longitude": "63.3990428", "Latitude": "13.081505800000059", "Category": "Skidor" },
+            { "Id": 5, "Name": "Stora rengen", "Longitude": "58.2589227", "Latitude": "15.720074699999941", "Category": "Fiske" }
         ];
 
         $.each(data, function (i, item) {
             var icon;
-            if (item.type == "Skidor") {
+            if (item.Category == "Skidor") {
                 icon = "/Images/Skiermarker.png"
             }
-            else if (item.type == "Fiske") {
+            else if (item.Category == "Fiske") {
                 icon = "/Images/Fishmarker.png"
             }
-            else if (item.type == "Vandring") {
+            else if (item.Category == "Vandring") {
                 icon = "/Images/Hikermarker.png"
             }
             var marker = new google.maps.Marker({
-                'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                'position': new google.maps.LatLng(item.Longitude, item.Latitude),
                 'map': map,
                 'animation': google.maps.Animation.DROP,
-                'title': item.PlaceName,
-                'Type': item.type,
+                'title': item.Name,
+                'Type': item.Category,
                 'icon': icon
             });
             var infowindow = new google.maps.InfoWindow({
-                content: "<div class='infoDiv'><h3>" + item.PlaceName + "<br />" + "<br />" + "<h5>" + item.type + "</div>"
+                content: "<div class='infoDiv'><h3>" + item.Name + "<br />" + "<br />" + "<h5>" + item.Category + "</div>"
             });
 
             google.maps.event.addListener(marker, 'click', function () {
