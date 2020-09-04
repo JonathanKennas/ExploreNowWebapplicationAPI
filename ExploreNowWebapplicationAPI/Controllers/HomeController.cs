@@ -27,6 +27,7 @@ namespace ExploreNowWebapplicationAPI.Controllers
         // Validering fungerar ej: ~/Scripts/jquery-validation/dist/jquery.validate.min.js
         // Felmeddelande i konsol vid körning: "jQuery is not defined"
         // Går ej in i debugg efter "skicka"
+        // Kryptering ej testad
         // Källa: https://www.codeproject.com/Tips/1081578/How-to-Implement-Contact-Us-Page-in-ASP-NET-MVC-AS
         public ActionResult ContactUs(ContactViewModel vm)
         {
@@ -35,24 +36,28 @@ namespace ExploreNowWebapplicationAPI.Controllers
             {
                 try
                 {
-                    // Kryptering ej testad
+                    // Krypterat lösenord
                     string encryptedPassword;
-                    encryptedPassword = "LÖSENORD HÄR"; // Krypterat lösenord
+                    encryptedPassword = "LÖSENORD HÄR"; // Lägg till lösenord
                     Decrypt dectypt = new Decrypt();
-                    dectypt.ROT13(encryptedPassword); // Avkrypterar lösenordet
+                    // Avkrypterar lösenordet
+                    dectypt.ROT13(encryptedPassword);
 
                     MailMessage msz = new MailMessage();
                     msz.From = new MailAddress(vm.Email);
-                    msz.To.Add("jk95@live.se"); // E-postadress till mottagare
+                    // E-postadress till mottagare
+                    msz.To.Add("jk95@live.se");
                     msz.Subject = vm.Subject;
                     msz.Body = vm.Message;
                     SmtpClient smtp = new SmtpClient();
 
-                    smtp.Host = "smtp-mail.outlook.com"; // SMTP-adress
-                    smtp.Port = 587; // Port
+                    // SMTP-adress
+                    smtp.Host = "smtp-mail.outlook.com";
+                    // Port
+                    smtp.Port = 587;
 
                     //E-postadress och lösenord för avsändare
-                    smtp.Credentials = new System.Net.NetworkCredential("jk95@live.se", encryptedPassword); // Kolla om lösenordet är avkrypterat
+                    smtp.Credentials = new System.Net.NetworkCredential("jk95@live.se", encryptedPassword);
 
                     smtp.EnableSsl = true;
 
