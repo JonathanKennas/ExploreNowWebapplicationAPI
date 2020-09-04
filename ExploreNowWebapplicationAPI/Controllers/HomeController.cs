@@ -37,7 +37,7 @@ namespace ExploreNowWebapplicationAPI.Controllers
                 {
                     // Kryptering ej testad
                     string encryptedPassword;
-                    encryptedPassword = "2NBdn34nd3n5"; // Krypterat lösenord
+                    encryptedPassword = "LÖSENORD HÄR"; // Krypterat lösenord
                     Decrypt dectypt = new Decrypt();
                     dectypt.ROT13(encryptedPassword); // Avkrypterar lösenordet
 

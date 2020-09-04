@@ -13,7 +13,7 @@ namespace ExploreNowWebapplicationAPI.Models
         public string ROT13(string input)
         {
             StringBuilder result = new StringBuilder();
-            Regex regex = new Regex("[A-Za-z]"); // Fungerar ej med Å,Ä,Ö
+            Regex regex = new Regex("[A-Za-z]"); // Fungerar ej med Å,Ä,Ö eller siffror
             foreach (char c in input)
             {
                 if (regex.IsMatch(c.ToString()))
