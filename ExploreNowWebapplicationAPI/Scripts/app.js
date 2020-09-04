@@ -99,6 +99,12 @@
             else if (item.Category == "Vandring") {
                 icon = "/Images/Hikermarker.png"
             }
+            else if (item.Category == "Längdskidåkning") {
+                icon = "/Images/XcSkiermarker.png"
+            }
+            else if (item.Category == "Cykling") {
+                icon = "/Images/ExploreNowLogo.png" // Ikon för fiske finns ej
+            }
             var marker = new google.maps.Marker({
                 'position': new google.maps.LatLng(item.Longitude, item.Latitude),
                 'map': map,
@@ -107,8 +113,9 @@
                 'Type': item.Category,
                 'icon': icon
             });
+            // Inforuta vid klick på markör
             var infowindow = new google.maps.InfoWindow({
-                content: "<div class='infoDiv'><h3>" + item.Name + "<br />" + "<br />" + "<h5>" + item.Category + "</div>"
+                content: "<div class='infoDiv'><h3>" + item.Name + "<br />" + "<br />" + "<h5>" + item.Category + "</div>" // Lägg till för Description
             });
 
             google.maps.event.addListener(marker, 'click', function () {
