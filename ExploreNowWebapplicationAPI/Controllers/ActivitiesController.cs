@@ -35,7 +35,7 @@ namespace ExploreNowWebapplicationAPI.Controllers
         [ResponseType(typeof(ActivityDetailDTO))]
         public async Task<IHttpActionResult> GetActivity(int id)
         {
-            // Hämtar en aktivitet och knyter den till 
+            // Hämtar en aktivitet och knyter den till en kategori
             var activity = await db.Activities.Include(b => b.Category).Select(b =>
             new ActivityDetailDTO()
             {
